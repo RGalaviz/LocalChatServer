@@ -44,12 +44,12 @@ int main(int argc, char **argv) {
 	//establish contact with xml code.
 
 	builder = gtk_builder_new_from_file("./GladeProject/Glade.glade");
-
+	//Creates widget window, associated with the "Window" property of our XML File
 	window = GTK_WIDGET(gtk_builder_get_object(builder,"Window"));
-
+	//Create our "X" signal, in order to destroy the window
 	g_signal_connect(window,"destroy",G_CALLBACK(gtk_main_quit),NULL); 
 
-	
+	//Connect GLADE established signals to C file Widgets
 	gtk_builder_connect_signals(builder,NULL);
 	FixedContainer =  GTK_WIDGET(gtk_builder_get_object(builder,"FixedContainer"));
 
@@ -89,12 +89,12 @@ int main(int argc, char **argv) {
 
 	gtk_tree_store_append(TreeStore,&iter,NULL);
 
-	gtk_tree_store_set(TreeStore, &iter, 0, "Texto anadido desde el programa", -1);
+	gtk_tree_store_set(TreeStore, &iter, 0, "SampleText", -1);
 
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(TreeView));
-		
+	//Show every widget created, even the window!
 	gtk_widget_show_all(window);
-
+	//Creates the main program loop.
 	gtk_main();
 
 	return EXIT_SUCCESS;
