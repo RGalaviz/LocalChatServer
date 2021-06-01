@@ -35,7 +35,7 @@ int port;
 char* ip;
 struct sockaddr_in server_info;
 
-/*To compile gcc `pkg-config --cflags gtk+-3.0` -o clientGui clientGUI.c `pkg-config --libs gtk+-3.0` -lpthread */
+/*To compile gcc `pkg-config --cflags gtk+-3.0` -o clientGui clientGUI.c `pkg-config --libs gtk+-3.0` -lpthread -export-dynamic */
 
 int main(int argc, char **argv) {
 
