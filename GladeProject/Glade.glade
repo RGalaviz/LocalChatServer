@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.2 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkTreeStore" id="TreeStore">
+    <columns>
+      <!-- column-name Message -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="Window">
+    <property name="can_focus">False</property>
+    <child type="titlebar">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkFixed" id="FixedContainer">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkButton" id="ConnectBtn">
+            <property name="label">gtk-connect</property>
+            <property name="width_request">91</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="focus_on_click">False</property>
+            <property name="receives_default">True</property>
+            <property name="margin_right">15</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
+            <signal name="clicked" handler="on_ConnectBtn_clicked" swapped="no"/>
+            <accessibility>
+              <action action_name="click" description="Connect to Specified server"/>
+            </accessibility>
+          </object>
+          <packing>
+            <property name="x">347</property>
+            <property name="y">131</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="LabelServerIP">
+            <property name="width_request">165</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Server IP address</property>
+          </object>
+          <packing>
+            <property name="x">366</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ServerIP">
+            <property name="width_request">168</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">Ex. 192.168.1.100</property>
+          </object>
+          <packing>
+            <property name="x">366</property>
+            <property name="y">27</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="PortNumber">
+            <property name="width_request">168</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">Ex. 5001</property>
+            <property name="input_purpose">digits</property>
+          </object>
+          <packing>
+            <property name="x">364</property>
+            <property name="y">89</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="LabelPort">
+            <property name="width_request">165</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Port Number (&gt;5000)</property>
+          </object>
+          <packing>
+            <property name="x">364</property>
+            <property name="y">63</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="width_request">99</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Message box:</property>
+          </object>
+          <packing>
+            <property name="x">4</property>
+            <property name="y">178</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="ChatEntry">
+            <property name="width_request">464</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">5</property>
+            <property name="y">201</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="SendBtn">
+            <property name="label">gtk-ok</property>
+            <property name="width_request">85</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <signal name="clicked" handler="on_SendBtn_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">473</property>
+            <property name="y">202</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="DisconnectBtn">
+            <property name="label">gtk-disconnect</property>
+            <property name="width_request">110</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <property name="always_show_image">True</property>
+            <signal name="clicked" handler="on_DisconnectBtn_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">445</property>
+            <property name="y">130</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="Scroll">
+            <property name="width_request">337</property>
+            <property name="height_request">183</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="TreeView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">TreeStore</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="select"/>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="cx1">
+                    <property name="title" translatable="yes">Message</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cr1"/>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">3</property>
+            <property name="y">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

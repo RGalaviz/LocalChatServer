@@ -12,6 +12,9 @@ struct clients{
  };
 struct clients clients;
 
+int totalClients=0;
+
+int filedescriptor=1000;
 void *serves_client() {
 	int i=clients.i;
     int sock = clients.nsfd[i];
@@ -26,10 +29,13 @@ void *serves_client() {
 		
 		read(sock, &message, sizeof(message));
 		printf("id: %i> %s\n", i, message);
-		for (j = 0; j < 100; j++)
+		for (j = 0; j < totalClients; j++)
 		{
-			if(j!=i)
+			printf("\n\n\n\n\n\nJ!=I: %i> \n\n\n\n\n", j!=i);
+			if(j!=i){
+				printf("Imprimiré algo:\n");
 				write(clients.nsfd[j],&message, sizeof(message));
+				}
 		}
 	}
 
@@ -39,7 +45,7 @@ void *serves_client() {
 }
 
 void server(char* ip, int port, char* program) {
-	int sfd, nsfd[100], pid,len;
+	int sfd, nsfd, pid,len;
 	 
 	struct sockaddr_in server_info, client_info;
 
@@ -66,10 +72,15 @@ void server(char* ip, int port, char* program) {
 		
 		
 		len = sizeof(client_info);
-		if ( (clients.nsfd[i] = accept(sfd, (struct sockaddr *) &client_info, &len)) < 0 ) {
+		if ( (nsfd = accept(sfd, (struct sockaddr *) &client_info, &len)) < 0 ) {
 			perror(program);
 			exit(-1);
 		}
+
+		dup2(nsfd, filedescriptor);
+
+		clients.nsfd[i] = filedescriptor;
+
 		clients.i=i;
 		printf("\nCliente de chat numero: %i\n", clients.i);
 	
@@ -80,6 +91,8 @@ void server(char* ip, int port, char* program) {
 		}
 		
 		i++;
+		totalClients++;
+		filedescriptor--;
 	}
 
 	
