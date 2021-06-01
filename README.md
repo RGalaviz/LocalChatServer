@@ -1,4 +1,4 @@
-# Programming Languages Final Project.
+# Programming Languages Local Area Chat in C using concurrency.
 **Local Chat server using sockets**
 
 Documentation:
