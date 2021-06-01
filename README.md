@@ -1,15 +1,7 @@
 # Programming Languages Final Project.
 **Local Chat server using sockets**
 
--Description to be added-
-
-usage:
-
-```
-$ .\server ip port
-```
-
-```
-$ .\client ip port
+Documentation:
+https://github.com/RGalaviz/LocalChatServer/blob/main/Chat%20server%20in%20C.pdf
 ```
 
